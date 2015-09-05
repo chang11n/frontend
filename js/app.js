@@ -1,13 +1,23 @@
+/* global angular */
+
 (function () {
-    var foodApp = angular.module('foodApp', []);
+    var PTapp = angular.module('PTapp', []);
 
 
-    foodApp.controller('menuController',['$http', function($http){
-        var rest=this;
-        rest.menu=[];
+    PTapp.controller('userController', ['$http', function ($http) {
+            var rest = this;
+            rest.user = [];
 
-        this.send=function(){$http.get('http://domba-06.cs.umanitoba.ca:3000/menu/suggestion/random').success(function(data){
-            rest.menu=data;});
-        };
-    }]);
+            this.send = function () {
+                $http({method: 'GET', url: 'http://localhost:8080/user/1',
+                    headers: {
+                        "id": "1",
+                        "credential": "123456"
+                    }})
+                        .then(function (response) {
+                            rest.user = response.data;
+                        }, function (response) {
+                            alert('Failed: ' + response.status);
+                        });};
+        }]);
 })();
