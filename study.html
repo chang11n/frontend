@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="PTapp">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +9,14 @@
         <meta name="author" content="">
         <link rel="icon" href="favicon.ico">
         <title>Java Private Torrent</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
         <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
     </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+    <body ng-controller="userController as userCtrl;">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle dropdown active open" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
@@ -24,17 +25,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Rugal</a>
+                    <img class="navbar-brand" src="assets/img/R.png" alt="R" style="height: 54px; width: 54px;" />
+                    <a class="navbar-brand" href="#">Welcome</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right">
                         <div class="form-group">
-                            <input type="text" placeholder="Email" class="form-control">
+                            <input id="email" type="text" placeholder="Email" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="password" placeholder="Password" class="form-control">
+                            <input id="password" type="password" placeholder="Password" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-success">Sign in</button>
+                        <button type="submit" class="btn btn-success" ng-click="userCtrl.send();">Sign in</button>
+                        <button type="reset" class="btn btn-info" >Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -42,7 +45,7 @@
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <h1>Java Private Tracker</h1>
+                <h1 class="animated fadeInDown">Java Private Tracker</h1>
                 <p>La vie est drôle.</p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
             </div>
@@ -73,17 +76,15 @@
             <footer>
                 <p>&copy; Rugal Bernstein 2015</p>
             </footer>
-        </div> <!-- /container -->
-
+        </div>
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/angular.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="assets/js/lib/jquery.min.js"></script>
+        <script src="assets/js/lib/angular.min.js"></script>
+        <script src="assets/js/lib/bootstrap.min.js"></script>
+        <script src="assets/js/app.js"></script>
         <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
