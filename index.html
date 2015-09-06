@@ -1,51 +1,96 @@
 <!DOCTYPE html>
-<html ng-app="PTapp">
+<html lang="en" ng-app="PTapp">
     <head>
-        <link rel="icon" type="image/icon" href="img/favicon.ico" />
-        <!--<script type="text/javascript" src="js/angular.min.js"></script>-->
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-        <title>Test</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="favicon.ico">
+        <title>Java Private Torrent</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
     </head>
-    <body ng-controller="userController as userCtrl">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">TutorialsPoint</a>
-            </div>
-            <div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">iOS</a></li>
-                    <li><a href="#">SVN</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Java
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">jmeter</a></li>
-                            <li><a href="#">EJB</a></li>
-                            <li><a href="#">Jasper Report</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
+    <body ng-controller="SigninController as signinCtrl">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle dropdown active open" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img class="navbar-brand" src="assets/img/R.png" alt="R" style="height: 54px; width: 54px;" />
+                    <a class="navbar-brand" href="#">Welcome</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input id="email" ng-model="user.email" type="text" placeholder="Email" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input id="password" ng-model="user.password" type="password" placeholder="Password" value=""  class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success" ng-click="signinCtrl.send(user);">Sign in</button>
+                        <button type="reset" class="btn btn-info" >Sign Up</button>
+                    </form>
+                </div>
             </div>
         </nav>
-        <h2>{{userCtrl.user.data.username}}</h2>
-        <h2>{{userCtrl.user.data.password}}</h2>
-        <h2>{{userCtrl.user.data.email}}</h2>
-        <button ng-click="userCtrl.send();"></button>
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="animated fadeInDown">Java Private Tracker</h1>
+                <p>La vie est drôle.</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>JPT first released</h2>
+                    <p>{{signinCtrl.responsebody.data.user.username}}</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Travis passed</h2>
+                    <p>{{signinCtrl.responsebody.data.user.password}}</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Last one</h2>
+                    <p>{{signinCtrl.responsebody.data.user.email}}</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+            </div>
+
+            <hr>
+
+            <footer>
+                <p>&copy; Rugal Bernstein 2015</p>
+            </footer>
+        </div>
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/angular.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
+        <!--
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        -->
+        <script src="assets/js/lib/jquery.min.js"></script>
+        <script src="assets/js/lib/angular-animate.js"></script>
+        <script src="assets/js/lib/angular.min.js"></script>
+        <script src="assets/js/lib/bootstrap.min.js"></script>
+        <script src="assets/js/lib/ui-bootstrap.min.js"></script>
+        <script src="assets/js/app.js"></script>
     </body>
 </html>
