@@ -3,9 +3,9 @@
     <head>
         <link rel="icon" type="image/icon" href="img/favicon.ico" />
         <!--<script type="text/javascript" src="js/angular.min.js"></script>-->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <title>Test</title>
     </head>
     <body ng-controller="userController as userCtrl">
@@ -13,5 +13,9 @@
         <h2>{{userCtrl.user.data.password}}</h2>
         <h2>{{userCtrl.user.data.email}}</h2>
         <button ng-click="userCtrl.send();"></button>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>
