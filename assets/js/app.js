@@ -14,11 +14,11 @@
             var rest = this;
             rest.user = [];
 
-            this.send = function () {
-                $http({method: 'GET', url: 'http://localhost:8080/user/1',
+            this.send = function (user) {
+                $http({method: 'POST', url: 'http://localhost:8080/signin',
                     headers: {
-                        "id": "1",
-                        "credential": "123456"
+                        "id": user.email,
+                        "credential": user.password
                     }})
                         .then(function (response) {
                             rest.user = response.data;
