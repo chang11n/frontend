@@ -31,10 +31,10 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right">
                         <div class="form-group">
-                            <input id="email" ng-model="user.email" type="text" placeholder="Email" value="" class="form-control">
+                            <input id="email" ng-model="user.email" type="text" placeholder="Email" value="" class="form-control" required />
                         </div>
                         <div class="form-group">
-                            <input id="password" ng-model="user.password" type="password" placeholder="Password" value=""  class="form-control">
+                            <input id="password" ng-model="user.password" type="password" placeholder="Password" value=""  class="form-control" required  />
                         </div>
                         <button type="submit" class="btn btn-success" ng-click="signinCtrl.send(user);">Sign in</button>
                         <button type="reset" class="btn btn-info" >Sign Up</button>
@@ -74,6 +74,7 @@
             <hr>
 
             <footer>
+
                 <p>&copy; Rugal Bernstein 2015</p>
             </footer>
         </div>

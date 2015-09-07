@@ -8,7 +8,6 @@ PTapp.config(['$httpProvider', function ($httpProvider) {
     }]);
 
 
-
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 var WindowInstanceController = PTapp.controller('WindowInstanceController', function ($scope, $modalInstance, content) {
@@ -20,7 +19,7 @@ var WindowInstanceController = PTapp.controller('WindowInstanceController', func
 
 
 var signinController = PTapp.controller('SigninController', ['$http', '$scope', '$modal', '$log', function ($http, $scope, $modal, $log) {
-        $scope.open = function (json) {
+        $scope.open = function (error) {
             var modalInstance = $modal.open({
                 animation: true,
                 templateUrl: 'assets/template/SigninFailed.html',
@@ -28,10 +27,8 @@ var signinController = PTapp.controller('SigninController', ['$http', '$scope', 
                 size: 'sm',
                 resolve: {
                     content: function () {
-                        return json.message;
-                    }
-                }
-            });
+                        return error;
+                    }}});
             modalInstance.result.then(function () {
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
@@ -42,16 +39,27 @@ var signinController = PTapp.controller('SigninController', ['$http', '$scope', 
         var rest = this;
         rest.responsebody = [];
         this.send = function (user) {
+            if (undefined === user || undefined === user.email || undefined === user.password)
+            {
+                return;
+            }
             $http({method: 'POST', url: 'http://localhost:8080/signin',
                 headers: {
                     "id": user.email,
                     "credential": user.password
                 }})
                     .then(function (response) {
+                        if (null === response.data || null === response.data.message || undefined === response.data || undefined === response.data.message)
+                        {
+                            return;
+                        }
                         rest.responsebody = response.data;
-                        $scope.open(response.data);
                     }, function (response) {
-                        $scope.open(response.data);
+                        if (null === response.data || null === response.data.message || undefined === response.data || undefined === response.data.message)
+                        {
+                            return;
+                        }
+                        $scope.open(response.data.message);
                     });
         };
 
