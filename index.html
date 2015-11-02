@@ -1,97 +1,66 @@
+<!-- @Jing Tao   104325892   
+@Julia Zhang 104498769
+-->
 <!DOCTYPE html>
-<html lang="en" ng-app="PTapp">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="favicon.ico">
-        <title>Java Private Torrent</title>
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
-    </head>
-    <body ng-controller="SigninController as signinCtrl">
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle dropdown active open" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <img class="navbar-brand" src="assets/img/R.png" alt="R" style="height: 54px; width: 54px;" />
-                    <a class="navbar-brand" href="#">Welcome</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <form class="navbar-form navbar-right">
-                        <div class="form-group">
-                            <input id="email" ng-model="user.email" type="text" placeholder="Email" value="" class="form-control" required />
-                        </div>
-                        <div class="form-group">
-                            <input id="password" ng-model="user.password" type="password" placeholder="Password" value=""  class="form-control" required  />
-                        </div>
-                        <button type="submit" class="btn btn-success" ng-click="signinCtrl.send(user);">Sign in</button>
-                        <button type="reset" class="btn btn-info" >Sign Up</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container">
-                <h1 class="animated fadeInDown">Food for you</h1>
-                <p>La vie est drôle.</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-            </div>
-        </div>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> Food For YOU </title>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<link href="css/css.css" type="text/css" rel="stylesheet">
+</head>
 
-        <div class="container">
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>JPT first released</h2>
-                    <p>{{signinCtrl.responsebody.data.user.username}}</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Travis passed</h2>
-                    <p>{{signinCtrl.responsebody.data.user.password}}</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Last one</h2>
-                    <p>{{signinCtrl.responsebody.data.user.email}}</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-            </div>
+<body>
+<div id="header"> <img  src="img/banner.gif" ></div>
+<h2>Welcome to food for you !</h2> 
 
-            <hr>
+ <!--- Angular JS -->
 
-            <footer>
+<div ng-app="myApp">
+	<p>Please enter your name...
+	<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
+	<h1>Hello {{name}}</h1>
 
-                <p>&copy; Rugal Bernstein 2015</p>
-            </footer>
-        </div>
+	<div ng-controller="restCtrl">
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <!--
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        -->
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/lib/angular.min.js"></script>
-        <script src="assets/js/lib/angular-animate.js"></script>
-        <script src="assets/js/lib/bootstrap.min.js"></script>
-        <script src="assets/js/lib/ui-bootstrap.min.js"></script>
-        <script src="assets/js/app.js"></script>
-    </body>
+		<p>Please enter what do you wanna to eat in the selection list:</p>	
+    		<select ng-model="meal">
+        		<option value="Breakfast">Breakfast</option>
+        		<option value="Lunch">Lunch</option>
+				<option value="Snack">Snack</option>
+				<option value="Dinner">Dinner</option>
+    		</select>    
+		<div ng-show="meal == 'Breakfast'">your Breakfast:</div>	
+    	<div ng-show="meal == 'Lunch'">your Lunch:</div>
+		<div ng-show="meal == 'Snack'">your Snack:</div>
+		<div ng-show="meal == 'Dinner'" > your Dinner: 
+       		<h3>Resturant :{{names.name}}</h3>
+			<h3>Price: ${{names.price}}</h3>
+			<h3><img src="https://food-for-you.herokuapp.com/menu/{{names.mid}}/image"></h3>
+		
+         
+			
+		</div>
+	</div>
+	
+</div>
+	
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('restCtrl', function($scope, $http) {
+
+  $http.get("https://food-for-you.herokuapp.com/menu")
+   .success(function (response) {
+	  $scope.names = response.data;});
+  });
+</script>
+
+
+
+
+</body>
 </html>
+   
+   
